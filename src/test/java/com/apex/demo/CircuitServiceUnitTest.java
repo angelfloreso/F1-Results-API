@@ -50,7 +50,7 @@ public class CircuitServiceUnitTest {
     void getAllCircuitss() {
         Circuits circuit = new Circuits(1,"albert_park","Albert Park Grand Prix Circuit","Melbourne","Australia",-37.8497f,144.968f,10,"http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit");
 
-        when(circuitsRepository.saveAll(CIRCUITS));
+        //when(circuitsRepository.saveAll(CIRCUITS));
 
         assertEquals(circuit.getName(), circuitService.findByName("Albert Park Grand Prix Circuit"));
     }
