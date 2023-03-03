@@ -111,6 +111,10 @@ FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\result
 DELIMITER ','
 CSV HEADER;
 
+UPDATE results
+SET position = 0
+WHERE position IS NULL;
+
 
 DROP TABLE IF EXISTS constructor_results;
 CREATE TABLE constructor_results (
@@ -204,6 +208,35 @@ COPY qualifying
 FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\qualifying.csv'
 DELIMITER ','
 CSV HEADER;
+
+
+DROP VIEW IF EXISTS resultsview;
+
+CREATE OR REPLACE VIEW resultsview
+ AS
+ SELECT row_number() OVER () AS id,
+ 	res."position",
+    race.date,
+    race.name AS race,
+    circ.name AS circuit,
+    circ.country,
+    cons.name AS constructor,
+    res.points,
+    driv.forename,
+    driv.surname
+   FROM results res,
+    drivers driv,
+    circuits circ,
+    races race,
+    constructors cons
+  WHERE res.raceid = race.raceid AND res.driverid = driv.driverid AND res.constructorid = cons.constructorid AND race.circuitid = circ.circuitid
+  ORDER BY race.date DESC, res."position";
+
+ALTER TABLE resultsview
+    OWNER TO postgres;
+
+GRANT ALL ON TABLE public.resultsview TO f1_user;
+GRANT ALL ON TABLE public.resultsview TO postgres;
 
 DROP TABLE IF EXISTS sprint_results;
 CREATE TABLE sprint_results (
