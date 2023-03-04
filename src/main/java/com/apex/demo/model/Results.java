@@ -1,10 +1,12 @@
 package com.apex.demo.model;
 
-import jakarta.persistence.*;
+import org.hibernate.annotations.Immutable;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Immutable
 @Table(name = "resultsview")
 public class Results {
     @Id

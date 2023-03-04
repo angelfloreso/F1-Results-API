@@ -1,3 +1,42 @@
+DROP VIEW IF EXISTS resultsview;
+
+DROP TABLE IF EXISTS seasons;
+CREATE TABLE seasons (
+    year integer,
+	url VARCHAR
+);
+COPY seasons
+FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\seasons.csv'
+DELIMITER ','
+CSV HEADER;
+
+DROP TABLE IF EXISTS status;
+CREATE TABLE status (
+    statusId serial,
+	status VARCHAR
+);
+COPY status
+FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\status.csv'
+DELIMITER ','
+CSV HEADER;
+
+DROP TABLE IF EXISTS drivers;
+CREATE TABLE drivers (
+    driverId serial,
+	driverRef VARCHAR,
+	number integer,
+	code VARCHAR,
+	forename VARCHAR,
+	surname VARCHAR,
+	dob DATE,
+	nationality VARCHAR,
+	url VARCHAR
+);
+COPY drivers
+FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\drivers.csv'
+DELIMITER ','
+CSV HEADER;
+
 DROP TABLE IF EXISTS circuits;
 CREATE TABLE circuits (
     circuitId serial,
@@ -28,24 +67,6 @@ FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\constr
 DELIMITER ','
 CSV HEADER;
 
-
-DROP TABLE IF EXISTS drivers;
-CREATE TABLE drivers (
-    driverId serial,
-	driverRef VARCHAR,
-	number integer,
-	code VARCHAR,
-	forename VARCHAR,
-	surname VARCHAR,
-	dob DATE,
-	nationality VARCHAR,
-	url VARCHAR
-);
-COPY drivers
-FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\drivers.csv'
-DELIMITER ','
-CSV HEADER;
-
 DROP TABLE IF EXISTS races;
 CREATE TABLE races (
     raceId serial,
@@ -61,29 +82,6 @@ COPY races
 FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\races.csv'
 DELIMITER ','
 CSV HEADER;
-
-
-DROP TABLE IF EXISTS seasons;
-CREATE TABLE seasons (
-    year integer,
-	url VARCHAR
-);
-COPY seasons
-FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\seasons.csv'
-DELIMITER ','
-CSV HEADER;
-
-
-DROP TABLE IF EXISTS status;
-CREATE TABLE status (
-    statusId serial,
-	status VARCHAR
-);
-COPY status
-FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\status.csv'
-DELIMITER ','
-CSV HEADER;
-
 
 DROP TABLE IF EXISTS results;
 CREATE TABLE results (
@@ -115,7 +113,6 @@ UPDATE results
 SET position = 0
 WHERE position IS NULL;
 
-
 DROP TABLE IF EXISTS constructor_results;
 CREATE TABLE constructor_results (
     constructorResultsId serial,
@@ -128,7 +125,6 @@ COPY constructor_results
 FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\constructor_results.csv'
 DELIMITER ','
 CSV HEADER;
-
 
 DROP TABLE IF EXISTS constructor_standings;
 CREATE TABLE constructor_standings (
@@ -145,7 +141,6 @@ FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\constr
 DELIMITER ','
 CSV HEADER;
 
-
 DROP TABLE IF EXISTS driver_standings;
 CREATE TABLE driver_standings (
     driverStandingsId serial,
@@ -161,7 +156,6 @@ FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\driver
 DELIMITER ','
 CSV HEADER;
 
-
 DROP TABLE IF EXISTS lap_times;
 CREATE TABLE lap_times (
     raceId serial,
@@ -175,7 +169,6 @@ COPY lap_times
 FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\lap_times.csv'
 DELIMITER ','
 CSV HEADER;
-
 
 DROP TABLE IF EXISTS pit_stops;
 CREATE TABLE pit_stops (
@@ -209,35 +202,6 @@ FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\qualif
 DELIMITER ','
 CSV HEADER;
 
-
-DROP VIEW IF EXISTS resultsview;
-
-CREATE OR REPLACE VIEW resultsview
- AS
- SELECT row_number() OVER () AS id,
- 	res."position",
-    race.date,
-    race.name AS race,
-    circ.name AS circuit,
-    circ.country,
-    cons.name AS constructor,
-    res.points,
-    driv.forename,
-    driv.surname
-   FROM results res,
-    drivers driv,
-    circuits circ,
-    races race,
-    constructors cons
-  WHERE res.raceid = race.raceid AND res.driverid = driv.driverid AND res.constructorid = cons.constructorid AND race.circuitid = circ.circuitid
-  ORDER BY race.date DESC, res."position";
-
-ALTER TABLE resultsview
-    OWNER TO postgres;
-
-GRANT ALL ON TABLE public.resultsview TO f1_user;
-GRANT ALL ON TABLE public.resultsview TO postgres;
-
 DROP TABLE IF EXISTS sprint_results;
 CREATE TABLE sprint_results (
     resultId serial,
@@ -261,3 +225,25 @@ COPY sprint_results
 FROM 'C:\Users\angel\Desktop\ApexSpringMockito\ApexSpringMockito\datasets\sprint_results.csv'
 DELIMITER ','
 CSV HEADER;
+
+DROP VIEW IF EXISTS resultsview;
+
+CREATE OR REPLACE VIEW resultsview
+ AS
+ SELECT row_number() OVER () AS id,
+ 	res."position",
+    race.date,
+    race.name AS race,
+    circ.name AS circuit,
+    circ.country,
+    cons.name AS constructor,
+    res.points,
+    driv.forename,
+    driv.surname
+   FROM results res,
+    drivers driv,
+    circuits circ,
+    races race,
+    constructors cons
+  WHERE res.raceid = race.raceid AND res.driverid = driv.driverid AND res.constructorid = cons.constructorid AND race.circuitid = circ.circuitid
+  ORDER BY race.date DESC, res."position";
