@@ -14,9 +14,11 @@ This is a simple API Code Example for consume F1 historical results
 ## 1.- Install all dependences
 * Java 8
 * PostgreSQL Server 
+* Maven
 
 ## 2.- Clone this repo
 ```
+git clone https://github.com/afv9988/F1-Results-API.git
 mvn clean install
 ```
 
