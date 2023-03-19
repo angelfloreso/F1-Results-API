@@ -34,8 +34,9 @@ public class Results {
     public Results() {
     }
 
-    public Results(long id, Date date, String race, String circuit, String country, String constructor, int points, String forename, String surname) {
+    public Results(long id, int position, Date date, String race, String circuit, String country, String constructor, int points, String forename, String surname) {
         this.id = id;
+        this.position = position;
         this.date = date;
         this.race = race;
         this.circuit = circuit;
