@@ -1,5 +1,11 @@
 # F1 Results API
-Simple API Code Example for consume F1 historical results using Spring Boot - PostgreSQL - Mockito
+This is a simple API Code Example for consume F1 historical results 
+- This project use
+  - Spring Boot
+  - Swagger
+  - PostgreSQL
+  - Mockito
+  - GitHub Actions
 
 ![CC0 Public Domain](https://www.publicdomainpictures.net/pictures/300000/velka/max-verstappen-f1.jpg)
 
@@ -7,11 +13,15 @@ Simple API Code Example for consume F1 historical results using Spring Boot - Po
 
 ## 1.- Install all dependences
 * Java 8
-* PostgreSQL Server
+* PostgreSQL Server 
 
 ## 2.- Clone this repo
+```
+mvn clean install
+```
 
 ## 3.- Import DB Script on psql
+* Execute import script or you can use my instance
 ```
 \i 'PROJECT_PATH/datasets/completed/F1_DB_Backup.sql'
 ```
@@ -24,8 +34,8 @@ Simple API Code Example for consume F1 historical results using Spring Boot - Po
 # [Demo Swagger](http://afdev.ddns.net/swagger-ui.html#/results-controller)
 
 ## ToDO
-* Mockito Unit testing
-* CI/CD
+* Improve Code Coverage
+* Improve CI/CD
 
 ## Resources
 * [Datasets](https://hasura.io/docs/latest/schema/postgres/postgres-guides/import-data-from-csv/)
