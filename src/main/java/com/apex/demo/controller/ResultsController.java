@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="/Results") // This means URL's start with /demo (after Application path)
+@RequestMapping(path="/api/v1")
 public class ResultsController {
 
     @Autowired
