@@ -13,9 +13,9 @@ jobs:
         image: postgres:13
         # Variables para arrancar PostgreSQL
         env:
-          POSTGRES_USER: mads
-          POSTGRES_PASSWORD: mads
-          POSTGRES_DB: mads_test
+          POSTGRES_USER: f1_user
+          POSTGRES_PASSWORD: a912072
+          POSTGRES_DB: f1_db1
         # Definimos chequeos para esperar hasta que postgres ya ha comenzado
         options: >-
           --health-cmd pg_isready
@@ -28,6 +28,6 @@ jobs:
       - name: Launch tests with Maven
         run:
            chmod +x mvnw
-           ./mvnw clean install
+           ./mvnw test
         env:
           POSTGRES_HOST: postgres
