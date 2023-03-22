@@ -8,7 +8,7 @@ jobs:
     container: openjdk:17-jdk-alpine
     services:
       postgres:
-        image: postgres:13
+        image: postgres:15
         env:
           POSTGRES_USER: f1_user
           POSTGRES_PASSWORD: a912072
@@ -20,10 +20,10 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Prepare Maven
         run: chmod +x mvnw
-      - name: Launch tests with Maven
+      - name: Launch tests
         run: ./mvnw test
         env:
           POSTGRES_HOST: postgres
