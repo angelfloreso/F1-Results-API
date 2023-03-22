@@ -24,6 +24,6 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests with Maven
-        run: ./mvnw clean install
+        run: ./mvnw test
         env:
           POSTGRES_HOST: postgres

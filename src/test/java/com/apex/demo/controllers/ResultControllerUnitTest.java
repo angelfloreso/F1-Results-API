@@ -54,7 +54,8 @@ public class ResultControllerUnitTest {
     // Given
     when(resultService.findByCountry("UAE", paging)).thenReturn(TestResults.ONE_RESULTLIST);
     // When
-    mvc.perform(get("/Results/byCountry/{nameCountry}", "UAE")
+    mvc.perform(get("/api/v1/byCountry/{nameCountry}", "UAE")
+                    .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b3282b7")
                     .param("page", "0")
                     .param("size", "10")
                     .contentType(MediaType.APPLICATION_JSON))
@@ -69,7 +70,8 @@ public class ResultControllerUnitTest {
         // Given
         when(resultService.findBySurname("Alonso", paging)).thenReturn(TestResults.ONE_RESULTLIST);
         // When
-        mvc.perform(get("/Results/bySurname/{name}", "Alonso")
+        mvc.perform(get("/api/v1/bySurname/{name}", "Alonso")
+                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b3282b7")
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -84,7 +86,8 @@ public class ResultControllerUnitTest {
         // Given
         when(resultService.getAllResults(any())).thenReturn(TestResults.RESULTLIST);
         // When
-        mvc.perform(get("/Results/all")
+        mvc.perform(get("/api/v1/all")
+                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b3282b7")
                         .contentType(MediaType.APPLICATION_JSON))
                 // then
                 .andExpect(status().isOk())
