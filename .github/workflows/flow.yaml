@@ -25,9 +25,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Prepare Maven
+        run: chmod +x mvnw
       - name: Launch tests with Maven
-        run:
-           chmod +x mvnw
-           ./mvnw test
+        run: ./mvnw test
         env:
           POSTGRES_HOST: postgres
