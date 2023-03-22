@@ -26,6 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Launch tests with Maven
-        run:  mvn clean install -D spring.profiles.active=postgres
+        run:  ./mvnw clean install -D spring.profiles.active=postgres
         env:
           POSTGRES_HOST: postgres
