@@ -7,16 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk:8-jdk-alpine
     services:
-      # Etiqueta usada para acceder al contenedor del servicio
       postgres:
-        # Imagen Docker Hub
         image: postgres:13
-        # Variables para arrancar PostgreSQL
         env:
           POSTGRES_USER: f1_user
           POSTGRES_PASSWORD: a912072
           POSTGRES_DB: f1_db1
-        # Definimos chequeos para esperar hasta que postgres ya ha comenzado
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -28,6 +24,6 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests with Maven
-        run: ./mvnw test
+        run: ./mvnw clean install
         env:
           POSTGRES_HOST: postgres
