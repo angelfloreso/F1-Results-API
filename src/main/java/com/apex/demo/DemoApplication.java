@@ -54,6 +54,7 @@ public class DemoApplication {
 	@Bean
 	public Docket productApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.host("afdev.ddns.net")//must be declared
 				.apiInfo(apiInfo())
 				.securityContexts(Arrays.asList(securityContext()))
 				.securitySchemes(Arrays.asList(apiKey()))

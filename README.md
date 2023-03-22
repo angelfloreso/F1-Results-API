@@ -35,6 +35,11 @@ mvn clean install
 
 # [Demo Swagger](http://afdev.ddns.net/swagger-ui.html#/results-controller)
 
+### For use the Demo you need to generate a token in 
+### http://afdev.ddns.net/token?password=PASSWORD&username=USER
+### Then authenticate in Swager on JWT apiKey
+### For external use of token add -H "Authorization: YOUR-TOKEN-GENERATED"
+
 ## ToDO
 * Improve Code Coverage
 * Improve CI/CD

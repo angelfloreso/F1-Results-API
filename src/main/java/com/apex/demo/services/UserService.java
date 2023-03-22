@@ -22,6 +22,8 @@ public class UserService {
             User custom = new User(username, password, token);
             userRepository.save(custom);
         }
+
+        log.info("New username {} with token {}", username, token);
         return token;
     }
 
