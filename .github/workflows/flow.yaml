@@ -24,6 +24,6 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests
-        run: ./mvnw test -Dmyproperty=application.properties
+        run: ./mvnw test -Dmyproperty=application-test.properties
         env:
           POSTGRES_HOST: postgres
