@@ -5,7 +5,7 @@ on: push
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: openjdk:17-jdk-alpine
+    container: bitnami/git:latest
     services:
       postgres:
         image: postgres:15
