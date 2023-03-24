@@ -27,6 +27,8 @@ jobs:
         run: ./mvnw install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
+      - name: Launch tests
+        run: dir /__w/F1-Results-API/F1-Results-API/target
       - name: Generate JaCoCo Badges
         id: jacocoMod1
         uses: cicirello/jacoco-badge-generator@v2
