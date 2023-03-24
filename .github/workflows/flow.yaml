@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Launch git
-        run: git -v
+        run: ./git -v
       - name: Prepare Maven
         run: chmod +x mvnw
 
