@@ -36,6 +36,8 @@ jobs:
         run: |
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+      - name: Launch tests
+        run: ls /__w/F1-Results-API/F1-Results-API/.github/badges/
       
       - name: Upload JaCoCo coverage report
         uses: actions/upload-artifact@v2
