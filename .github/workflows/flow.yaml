@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'alpine'
+          distribution: 'temurin'
       - uses: actions/checkout@v2
       - name: Prepare Maven
         run: chmod +x mvnw
