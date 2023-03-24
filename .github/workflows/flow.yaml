@@ -27,8 +27,6 @@ jobs:
         run: ./mvnw install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
-      - name: Launch tests
-        run: ls /__w/F1-Results-API/F1-Results-API/target/site/jacoco/
       - name: Generate JaCoCo Badges
         id: jacocoMod1
         uses: cicirello/jacoco-badge-generator@v2
@@ -39,6 +37,8 @@ jobs:
           branches-badge-filename: branches.svg
           coverage-label: coverage
           branches-label: branches
+      - name: Launch tests
+        run: ls /__w/F1-Results-API/F1-Results-API/target/site/jacoco/
       - name: Commit the badge (if it changed)
         run: |
           if [[ `git status --porcelain` ]]; then
