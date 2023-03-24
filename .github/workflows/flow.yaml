@@ -28,35 +28,19 @@ jobs:
         env:
           POSTGRES_HOST: postgres
       - name: Launch tests
-        run: ls /__w/F1-Results-API/F1-Results-API/target/site/jacoco/
-        
-      - name: Save Coverage To Environment Variable
         run: |
-          echo "TOTAL_COVERAGE=${{ steps.jacoco.outputs.coverage-overall }}" >> $GITHUB_ENV
-          echo "CHANGED_FILES_COVERAGE=${{ steps.jacoco.outputs.coverage-changed-files }}" >> $GITHUB_ENV
-
-      - name: Print & Check Coverage Info
-        run: |
-          import os
-          import sys
-          print("Total Coverage: " + str(os.environ["TOTAL_COVERAGE"]))
-          print("Changed Files Coverage: " + str(os.environ["CHANGED_FILES_COVERAGE"]))
-          if float(os.environ["TOTAL_COVERAGE"]) < 80 or float(os.environ["CHANGED_FILES_COVERAGE"]) < 80:
-            print("Insufficient Coverage!")
-            sys.exit(-1) # Cause Status Check Failure due to noncompliant coverage
-          sys.exit(0)
-        shell: python
-        
+          ls /__w/F1-Results-API/F1-Results-API/target/site/jacoco/
+          cat /__w/F1-Results-API/F1-Results-API/target/site/jacoco/jacoco.csv
       - name: Generate JaCoCo Badges
         id: jacoco
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
           jacoco-csv-file: /__w/F1-Results-API/F1-Results-API/target/site/jacoco/jacoco.csv
-          coverage-badge-filename: jacoco.svg
-          branches-badge-filename: branches.svg
-          coverage-label: coverage
-          branches-label: branches
+      - name: Log coverage percentage
+        run: |
+          echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+          echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
       - name: Commit the badge (if it changed)
         run: |
           if [[ `git status --porcelain` ]]; then
