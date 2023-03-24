@@ -24,7 +24,7 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch Jacoco
-        run: ./mvnw mvn jacoco:report
+        run: ./mvnw jacoco:report
       - name: Launch tests
         run: ./mvnw install -D spring.profiles.active=test
         env:
