@@ -1,4 +1,5 @@
-# F1 Results API
+# F1 Results API ![Coverage](.github/badges/jacoco.svg)
+
 This is a simple API Code Example for consume F1 historical results 
 - This project uses
   - Spring Boot
