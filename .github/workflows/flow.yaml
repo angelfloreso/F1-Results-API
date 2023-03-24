@@ -3,7 +3,7 @@ name: Integration tests
 on: push
 
 jobs:
-  container-job:
+  build:
     runs-on: ubuntu-latest
     container: openjdk:17-jdk-alpine
     services:
@@ -23,7 +23,7 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests
-        run: mvnw install -D spring.profiles.active=test
+        run: mvn install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
       - name: Generate JaCoCo Badges
