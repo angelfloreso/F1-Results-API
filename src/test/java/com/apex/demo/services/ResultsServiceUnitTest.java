@@ -1,6 +1,6 @@
 package com.apex.demo.services;
 
-import com.apex.demo.data.TestResults;
+import com.apex.demo.data.DummyResults;
 import com.apex.demo.model.Results;
 import com.apex.demo.repository.ResultsRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +39,7 @@ public class ResultsServiceUnitTest {
     @Test
     public void findAllTest() {
         // Given
-        when(resultsRepository.findAll(any())).thenReturn(TestResults.RESULTLIST);
+        when(resultsRepository.findAll(any())).thenReturn(DummyResults.RESULTLIST);
         // When
         List<Results> arrr = resultService.getAllResults(paging);
         // then
@@ -48,7 +48,7 @@ public class ResultsServiceUnitTest {
     @Test
     public void findByPositionTest() {
         // Given
-        when(resultsRepository.findByPosition(1, paging)).thenReturn(TestResults.ONE_RESULTLIST);
+        when(resultsRepository.findByPosition(1, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         List<Results> arrr = resultService.findByPosition(1, paging);
         // then
@@ -58,7 +58,7 @@ public class ResultsServiceUnitTest {
     @Test
     public void findByCountryTest() {
         // Given
-        when(resultsRepository.findByCountry("UAE", paging)).thenReturn(TestResults.ONE_RESULTLIST);
+        when(resultsRepository.findByCountry("UAE", paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         List<Results> arrr = resultService.findByCountry("UAE", paging);
         // then

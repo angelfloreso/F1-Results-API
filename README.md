@@ -1,7 +1,9 @@
 # F1 Results API
 This is a simple API Code Example for consume F1 historical results 
-- This project use
+- This project uses
   - Spring Boot
+  - JWT
+  - JaCoCo
   - Swagger
   - PostgreSQL
   - Mockito

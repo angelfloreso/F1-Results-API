@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public final class TestResults {
+public final class DummyResults {
 
     public static final List<Results> RESULTLIST = new ArrayList<Results>(){
         {
@@ -36,7 +36,7 @@ public final class TestResults {
     public static final List<Results> ONE_RESULTLIST = new ArrayList<Results>(){
 
         {
-            add(TestResults.RESULTLIST.get(0));
+            add(DummyResults.RESULTLIST.get(0));
         }
     };
 }
