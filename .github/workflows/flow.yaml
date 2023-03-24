@@ -21,11 +21,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests
-        run: ./mvnw install -D spring.profiles.active=test
+        run: mvnw install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
       - name: Generate JaCoCo Badges
