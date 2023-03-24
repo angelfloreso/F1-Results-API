@@ -23,8 +23,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Prepare Maven
         run: chmod +x mvnw
-      - name: Launch Jacoco
-        run: ./mvnw -B package --file pom.xml
       - name: Launch tests
         run: ./mvnw install -D spring.profiles.active=test
         env:
@@ -34,7 +32,7 @@ jobs:
         uses: cicirello/jacoco-badge-generator@v2
         with:
           generate-branches-badge: true
-          jacoco-csv-file: ${{ github.workspace }}/target/site/jacoco/jacoco.csv
+          jacoco-csv-file: /__w/F1-Results-API/F1-Results-API/target/site/jacoco/jacoco.csv
           coverage-badge-filename: jacoco.svg
           branches-badge-filename: branches.svg
           coverage-label: coverage
