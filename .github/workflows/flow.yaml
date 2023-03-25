@@ -26,8 +26,10 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Prepare Maven
+        run: chmod +x mvnw
       - name: Launch tests
-        run: mvn install -D spring.profiles.active=test
+        run: ./mvnw install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
       - name: Generate JaCoCo Badges
