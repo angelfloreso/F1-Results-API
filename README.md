@@ -1,6 +1,7 @@
 # F1 Results API 
 ![CC0 Public Domain](https://www.publicdomainpictures.net/pictures/300000/velka/max-verstappen-f1.jpg)
 ![Coverage](.github/badges/jacoco.svg)
+![example workflow](https://github.com/afv9988/F1-Results-API/actions/workflows/flow.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
 - This project uses
