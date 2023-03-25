@@ -1,4 +1,6 @@
-# F1 Results API ![Coverage](.github/badges/jacoco.svg)
+# F1 Results API 
+![CC0 Public Domain](https://www.publicdomainpictures.net/pictures/300000/velka/max-verstappen-f1.jpg)
+![Coverage](.github/badges/jacoco.svg)
 
 This is a simple API Code Example for consume F1 historical results 
 - This project uses
@@ -9,8 +11,6 @@ This is a simple API Code Example for consume F1 historical results
   - PostgreSQL
   - Mockito
   - GitHub Actions
-
-![CC0 Public Domain](https://www.publicdomainpictures.net/pictures/300000/velka/max-verstappen-f1.jpg)
 
 # Steps to install
 
@@ -38,14 +38,13 @@ mvn clean install
 
 # [Demo Swagger](http://afdev.ddns.net/swagger-ui.html#/results-controller)
 
-### For use the Demo you need to generate a token in 
+### For access the Demo you need to generate a token 
 ### http://afdev.ddns.net/token?password=PASSWORD&username=USER
 ### Then authenticate in Swager on JWT apiKey
 ### For external use of token add -H "Authorization: YOUR-TOKEN-GENERATED"
 
 ## ToDO
 * Improve Code Coverage
-* Improve CI/CD
 
 ## Resources
 * [Datasets](https://hasura.io/docs/latest/schema/postgres/postgres-guides/import-data-from-csv/)
