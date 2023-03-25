@@ -41,6 +41,8 @@ jobs:
         run: |
           echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+      - name: Prepare git
+        run: git config --global --add safe.directory '*'
       - name: Commit and push the badge (if it changed)
         uses: EndBug/add-and-commit@v7
         with:
