@@ -4,7 +4,7 @@
 ![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/flow.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
-- This project uses
+- Features
   - Spring Boot
   - Swagger
   - PostgreSQL
