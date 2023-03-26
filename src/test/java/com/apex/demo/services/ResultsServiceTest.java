@@ -67,14 +67,25 @@ public class ResultsServiceTest {
     }
     @Test
     public void findByRaceTest() {
-        String race = new Date(1668902400).toString();
+        String race = "Abu Dhabi Grand Prix";
         // Given
         when(resultsRepository.findByRace(race, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         List<Results> arrr = resultService.findByRace(race, paging);
         // then
         assertEquals(1, arrr.size());
-        assertEquals(race.toString(), arrr.get(0).getDate().toString());
+        assertEquals(race.toString(), arrr.get(0).getRace());
+    }
+    @Test
+    public void findByCircuitTest() {
+        String circuit = "Yas Marina Circuit";
+        // Given
+        when(resultsRepository.findByCircuit(circuit, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
+        // When
+        List<Results> arrr = resultService.findByCircuit(circuit, paging);
+        // then
+        assertEquals(1, arrr.size());
+        assertEquals(circuit, arrr.get(0).getCircuit());
     }
     @Test
     public void findByCountryTest() {
@@ -87,5 +98,58 @@ public class ResultsServiceTest {
         assertEquals(1, arrr.size());
         assertEquals(country, arrr.get(0).getCountry());
     }
-
+    @Test
+    public void findByConstructorTest() {
+        String constructor = "Alpine F1 Team";
+        // Given
+        when(resultsRepository.findByConstructor(constructor, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
+        // When
+        List<Results> arrr = resultService.findByConstructor(constructor, paging);
+        // then
+        assertEquals(1, arrr.size());
+        assertEquals(constructor, arrr.get(0).getConstructor());
+    }
+    @Test
+    public void findByPointsTest() {
+        int points = 0;
+        // Given
+        when(resultsRepository.findByPoints(points, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
+        // When
+        List<Results> arrr = resultService.findByPoints(points, paging);
+        // then
+        assertEquals(1, arrr.size());
+        assertEquals(points, arrr.get(0).getPoints());
+    }
+    @Test
+    public void findByForenameTest() {
+        String forename = "Fernando";
+        // Given
+        when(resultsRepository.findByForename(forename, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
+        // When
+        List<Results> arrr = resultService.findByForename(forename, paging);
+        // then
+        assertEquals(1, arrr.size());
+        assertEquals(forename, arrr.get(0).getForename());
+    }
+    @Test
+    public void findBySurnameTest() {
+        String surename = "Alonso";
+        // Given
+        when(resultsRepository.findBySurname(surename, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
+        // When
+        List<Results> arrr = resultService.findBySurname(surename, paging);
+        // then
+        assertEquals(1, arrr.size());
+        assertEquals(surename, arrr.get(0).getSurname());
+    }
+    @Test
+    public void findByIdTest() {
+        int id = 25840;
+        // Given
+        when(resultsRepository.findById(id)).thenReturn(DummyResults.ONE_RESULTLIST.get(0));
+        // When
+        Results res = resultService.getById(id);
+        // then
+        assertEquals(id, res.getId());
+    }
 }
