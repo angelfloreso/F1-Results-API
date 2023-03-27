@@ -1,13 +1,10 @@
 package com.apex.demo.controllers;
 
 
-import com.apex.demo.controller.ResultsController;
 import com.apex.demo.data.DummyResults;
-import com.apex.demo.repository.ResultsRepository;
 import com.apex.demo.services.ResultsServices;
-import com.apex.demo.services.UserService;
-import org.junit.jupiter.api.Test;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,7 +16,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Date;
 
@@ -35,12 +31,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @Sql(scripts = {"file:src/test/resources/token.sql"})
 public class ResultControllerTest {
-
+    private static String TOKEN = "2176d2c3-89c8-4c3e-acab-253f9b32FFFF";
+    private Pageable paging = PageRequest.of(0, 10);
     @MockBean
     private ResultsServices resultService;
     @Autowired
     private MockMvc mvc;
-    private Pageable paging = PageRequest.of(0, 10);
 
     @Test
     public void getByIdTest() throws Exception {
@@ -49,7 +45,7 @@ public class ResultControllerTest {
         when(resultService.getById(id)).thenReturn(DummyResults.ONE_RESULTLIST.get(0));
         // When
         mvc.perform(get("/api/v1/{id}", id)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .contentType(MediaType.APPLICATION_JSON))
                 // then
                 .andExpect(status().isOk())
@@ -62,7 +58,7 @@ public class ResultControllerTest {
         when(resultService.findByPosition(position, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byPosition/{position}", position)
-                                .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                                .header("Authorization", TOKEN)
                                 .param("page", "0")
                                 .param("size", "10")
                                 .contentType(MediaType.APPLICATION_JSON))
@@ -77,7 +73,7 @@ public class ResultControllerTest {
         when(resultService.findByDate(date, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byDate/{date}", date)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -92,7 +88,7 @@ public class ResultControllerTest {
         when(resultService.findByRace(race, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byRaceName/{name}", race)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -107,7 +103,7 @@ public class ResultControllerTest {
         when(resultService.findByCircuit(circuit, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byCircuitName/{name}", circuit)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -122,7 +118,7 @@ public class ResultControllerTest {
         when(resultService.findByCountry(country, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byCountry/{nameCountry}", country)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -137,7 +133,7 @@ public class ResultControllerTest {
         when(resultService.findByConstructor(constructor, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byConstructorName/{name}", constructor)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -152,7 +148,7 @@ public class ResultControllerTest {
         when(resultService.findByPoints(points, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byPoints/{points}", points)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -167,7 +163,7 @@ public class ResultControllerTest {
         when(resultService.findByForename(forename, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/byForename/{name}", forename)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -182,7 +178,7 @@ public class ResultControllerTest {
         when(resultService.findBySurname(surname, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
         mvc.perform(get("/api/v1/bySurname/{name}", surname)
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .param("page", "0")
                         .param("size", "10")
                         .contentType(MediaType.APPLICATION_JSON))
@@ -196,7 +192,7 @@ public class ResultControllerTest {
         when(resultService.getAllResults(any())).thenReturn(DummyResults.RESULTLIST);
         // When
         mvc.perform(get("/api/v1/all")
-                        .header("Authorization", "2176d2c3-89c8-4c3e-acab-253f9b32FFFF")
+                        .header("Authorization", TOKEN)
                         .contentType(MediaType.APPLICATION_JSON))
                 // then
                 .andExpect(status().isOk())
