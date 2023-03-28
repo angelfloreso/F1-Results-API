@@ -48,7 +48,7 @@ public class DemoApplication {
 				"https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/TNC.txt",
 				new Contact("Angel Flores", "https://www.linkedin.com/in/angel-flores-olivas/", "afv9988@gmail.com"),
 				"License of API",
-				"API license URL",
+				"https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/TNC.txt",
 				Collections.emptyList());
 	}
 	@Bean

@@ -6,17 +6,17 @@
 ![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/flow.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
-- Features
-  - Spring Boot
-  - Swagger
-  - PostgreSQL
-  - Mockito
-  - Pagination
-  - JWT *
-  - JaCoCo *
-  - GitHub Actions *
-  - Badges updated *
-  - Updated until Saudi Arabian Grand Prix*
+Features
+- Spring Boot
+- Swagger
+- PostgreSQL
+- Mockito
+- Pagination
+- JWT *
+- JaCoCo *
+- GitHub Actions *
+- Badges updated *
+- Updated until Saudi Arabian Grand Prix *
 
 # Steps to install
 
