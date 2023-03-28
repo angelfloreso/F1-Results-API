@@ -45,8 +45,8 @@ public class DemoApplication {
 				"F1 Results API",
 				"This is an API for request the last results and statistics of F1",
 				"1.0",
-				"Terms of service",
-				new Contact("Angel Flores", "http://afdev.ddns.net/", "afv9988@gmail.com"),
+				"https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/TNC.txt",
+				new Contact("Angel Flores", "https://www.linkedin.com/in/angel-flores-olivas/", "afv9988@gmail.com"),
 				"License of API",
 				"API license URL",
 				Collections.emptyList());

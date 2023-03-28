@@ -1,5 +1,6 @@
 # F1 Results API 
-![CC0 Public Domain](https://github.com/afv9988/F1-Results-API/RB19.jpg)
+
+![CC0 Public Domain](https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/RB19.jpg?raw=true)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branch](.github/badges/branches.svg)
 ![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/flow.yaml/badge.svg)
@@ -10,6 +11,7 @@ This is a simple API Code Example for consume F1 historical results
   - Swagger
   - PostgreSQL
   - Mockito
+  - Pagination
   - JWT *
   - JaCoCo *
   - GitHub Actions *
@@ -41,14 +43,12 @@ mvn clean install
 ```
 
 # [Demo Swagger](http://afdev.ddns.net/swagger-ui.html#/results-controller)
-
-### For access the Demo you need to generate a token 
-### http://afdev.ddns.net/token?password=PASSWORD&username=USER
-### Then authenticate in Swager on JWT apiKey
-### For external use of token add -H "Authorization: YOUR-TOKEN-GENERATED"
-
-## ToDO
-* Improve Code Coverage
+For access the Demo you need to generate a token [here](http://afdev.ddns.net/token?password=PASSWORD&username=USER) or
+```
+curl -X GET "http://afdev.ddns.net/token?password=NEW_USER&username=NEW_PASSWORD" -H "accept: */*"
+```
+Then authenticate in Swager on JWT apiKey
+For external use of token add -H "Authorization: YOUR-TOKEN-GENERATED"
 
 ## Resources
 * [Import Datasets](https://hasura.io/docs/latest/schema/postgres/postgres-guides/import-data-from-csv/)
@@ -57,3 +57,6 @@ mvn clean install
 
 * [F1 Datasets](https://ergast.com/mrd/db/)
 
+## Resources
+
+* [Terms & Conditions](https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/TNC.txt)
