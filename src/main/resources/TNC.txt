@@ -1,0 +1,45 @@
+  ______ __   _____                 _ _                  _____ _____
+ |  ____/_ | |  __ \               | | |           /\   |  __ \_   _|
+ | |__   | | | |__) |___  ___ _   _| | |_ ___     /  \  | |__) || |
+ |  __|  | | |  _  // _ \/ __| | | | | __/ __|   / /\ \ |  ___/ | |
+ | |     | | | | \ \  __/\__ \ |_| | | |_\__ \  / ____ \| |    _| |_
+ |_|     |_| |_|  \_\___||___/\__,_|_|\__|___/ /_/    \_\_|   |_____|
+
+
+Terms & Conditions
+The F1 Results API is an experimental web service which provides a historical
+record of motor racing data fornon-commercial purposes.
+
+The author grants you the right to create your own applications and services
+based on this API provided that theseconform to the conditions specified in
+this document.
+
+Terms Of Use
+You may use this API for personal, non-commercial applications and services
+including educational and research purposes. Use by websites and applications
+supported by advertising is permitted. However, you must not charge for any
+application or service which makes use of this API or for any data obtained
+from it.
+
+Responsible Use
+You must not create any application which polls the API more than four times
+per second or more than 200 times per hour. Applications and users exceeding
+these rates are likely to be blocked. Caching is permitted and encouraged.
+
+The API has been designed so that most queries can be satisfied without the
+need to call methods from within a loop and this practice is strongly discouraged.
+An app should require a user action before initiating a finite number of requests.
+
+If you do call the API from within a loop it must incorporate a delay so that
+the above limits are not exceeded and it must be designed to terminate after a
+small, finite number of iterations under all conditions.
+
+Attribution
+You are not required to attribute this site in applications or services using
+this API. However, an attribution would be appreciated when addressing a technical
+audience.
+
+Disclaimer
+The author disclaims all responsibility for any loss or damage arising from
+the use of this API. The author cannot guarantee the continuing availability
+of the API or the accuracy of the data.
