@@ -14,6 +14,7 @@ This is a simple API Code Example for consume F1 historical results
   - JaCoCo *
   - GitHub Actions *
   - Badges updated *
+  - Updated until Saudi Arabian Grand Prix*
 
 # Steps to install
 
