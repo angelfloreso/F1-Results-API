@@ -1,8 +1,0 @@
-type Circuit {
-    id: ID!
-    name: String!
-}
-
-type Query {
-    circuit(id: ID!): Pokemon
-}
