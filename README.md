@@ -16,6 +16,7 @@ Features
 - JaCoCo *
 - GitHub Actions *
 - Badges updated *
+- Unit test with embedded DB (h2 engine)
 - Updated until Saudi Arabian Grand Prix *
 
 # Steps to install
