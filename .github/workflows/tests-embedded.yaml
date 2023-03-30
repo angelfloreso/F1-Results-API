@@ -1,4 +1,4 @@
-name: Integration tests service
+name: Integration tests embedded
 
 on: push
 
@@ -12,7 +12,7 @@ jobs:
         env:
           POSTGRES_USER: f1_user
           POSTGRES_PASSWORD: a912072
-          POSTGRES_DB: f1_db
+          POSTGRES_DB: f1_db1
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -29,7 +29,7 @@ jobs:
       - name: Prepare Maven
         run: chmod +x mvnw
       - name: Launch tests
-        run: ./mvnw install -D spring.profiles.active=test
+        run: ./mvnw install -D spring.profiles.active=embedded
         env:
           POSTGRES_HOST: postgres
       - name: Generate JaCoCo Badges
