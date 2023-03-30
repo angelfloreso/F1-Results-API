@@ -1,4 +1,4 @@
-name: Integration tests service
+name: Integration Tests Service
 
 on: push
 

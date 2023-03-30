@@ -3,7 +3,8 @@
 ![CC0 Public Domain](https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/RB19.jpg)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branch](.github/badges/branches.svg)
-![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/flow.yaml/badge.svg)
+![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/test-service.yaml/badge.svg)
+![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/test-embedded.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
 Features

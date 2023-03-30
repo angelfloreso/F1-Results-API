@@ -1,4 +1,4 @@
-name: Integration tests embedded
+name: Integration Tests Embedded
 
 on: push
 
