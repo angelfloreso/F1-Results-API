@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -30,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(scripts = {"file:src/test/resources/token.sql"})
+@Transactional
 public class ResultControllerTest {
     private static String TOKEN = "2176d2c3-89c8-4c3e-acab-253f9b32FFFF";
     private Pageable paging = PageRequest.of(0, 10);

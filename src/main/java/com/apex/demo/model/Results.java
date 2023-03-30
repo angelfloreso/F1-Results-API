@@ -1,6 +1,8 @@
 package com.apex.demo.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Immutable;
 
@@ -11,6 +13,8 @@ import java.util.Date;
 @Immutable
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "resultsview")
 public class Results {
     @Id
@@ -35,19 +39,4 @@ public class Results {
     @Column(name = "surname")
     private String surname;
 
-    public Results() {
-    }
-
-    public Results(long id, int position, Date date, String race, String circuit, String country, String constructor, int points, String forename, String surname) {
-        this.id = id;
-        this.position = position;
-        this.date = date;
-        this.race = race;
-        this.circuit = circuit;
-        this.country = country;
-        this.constructor = constructor;
-        this.points = points;
-        this.forename = forename;
-        this.surname = surname;
-    }
 }

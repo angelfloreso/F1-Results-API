@@ -1,6 +1,7 @@
 package com.apex.demo.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "username")
@@ -30,9 +32,6 @@ public class User {
     @NotBlank
     @Size(max = 120)
     private String token;
-
-    public User() {
-    }
 
     public User(String username, String password, String token) {
         this.username = username;
