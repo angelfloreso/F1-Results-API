@@ -4,7 +4,7 @@
 ![Coverage](.github/badges/jacoco.svg)
 ![Branch](.github/badges/branches.svg)
 ![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/test-service.yaml/badge.svg)
-![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/test-embedded.yaml/badge.svg)
+![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/tests-embedded.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
 Features
