@@ -24,8 +24,10 @@ Features
 
 ## 1.- Install all dependences
 * Java 8
-* PostgreSQL Server 
 * Maven
+* Docker
+* (Optional) PostgreSQL Server
+  * This is only necesary only if you want to create your DB from scratch 
 
 ## 2.- Clone this repo
 ```
