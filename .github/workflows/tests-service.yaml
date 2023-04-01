@@ -37,6 +37,6 @@ jobs:
           echo "coverage on service = ${{ steps.jacoco.outputs.coverage }}"
           echo "branch coverage on service= ${{ steps.jacoco.outputs.branches }}"
       - name: Docker build
-        run: ,/mvn dockerfile:build
+        run: ./mvn dockerfile:build
       - name: Docker push
-        run: ,/mvn dockerfile:push
+        run: ./mvn dockerfile:push
