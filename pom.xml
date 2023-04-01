@@ -187,7 +187,7 @@
 				</executions>
 				<configuration>
 					<username>${project.groupId}</username>
-					<password>${env.DOCKER_HUB_TOKEN}</password>
+					<password>dckr_pat_3tD4gPkIegKW9K_KtztfzUKj7Sk</password>
 					<repository>registry.hub.docker.com/${project.groupId}/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
 				</configuration>
