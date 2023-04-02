@@ -1,8 +1,7 @@
 version: '3.8'
 services:
   db:
-    container_name: Postgres DB
-    image: afdev9988/f1_postgres_done
+    image: postgres
     restart: always
     environment:
       - POSTGRES_PASSWORD=912072
@@ -12,8 +11,8 @@ services:
       - db:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
   api:
-    container_name: FI Results API
-    image: afdev9988/f1-results-api
+    container_name: f1_results_api
+    image: afdev9988/f1-results-api:0.0.1
     depends_on:
       - db
     ports:

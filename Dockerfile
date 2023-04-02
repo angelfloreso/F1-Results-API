@@ -11,4 +11,4 @@ COPY ./target/f1-results-api-0.0.1.jar /app
 EXPOSE 8080
 
 # Starting the application
-CMD ["java", "-jar", "spring-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "f1-results-api-0.0.1.jar"]

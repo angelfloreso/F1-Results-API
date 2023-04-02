@@ -32,10 +32,6 @@ jobs:
         run: ./mvnw install -D spring.profiles.active=test
         env:
           POSTGRES_HOST: postgres
-      - name: Log coverage percentage on service
-        run: |
-          echo "coverage on service = ${{ steps.jacoco.outputs.coverage }}"
-          echo "branch coverage on service= ${{ steps.jacoco.outputs.branches }}"
       - name: Docker build
         run: ./mvnw dockerfile:build
       - name: Docker push
