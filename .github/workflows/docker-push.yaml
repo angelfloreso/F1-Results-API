@@ -39,5 +39,5 @@ jobs:
       - name: Docker build
         run: ./mvnw dockerfile:build
       - name: Docker push
-        run: ./mvnw dockerfile:push -DDOCKER_PASW=${{secrets.DOCKER_PASW}}
+        run: ./mvnw dockerfile:push -Ddocker.usr=${{secrets.DOCKER_USR}} -Ddocker.pasw=${{secrets.DOCKER_PASW}}
 
