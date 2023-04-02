@@ -30,16 +30,16 @@ public class UserServiceTest {
         // Given
         when(userRepository.login(any(), any())).thenReturn(TOKEN);
         // When
-        String res = userService.login("username", "password");
+        String result = userService.login("username", "password");
         // then
-        assertEquals(TOKEN, res);
+        assertEquals(TOKEN, result);
     }
     @Test
     public void loginNewTest() {
         // When
-        String res = userService.login("username", "password");
+        String result = userService.login("username", "password");
         // then
-        assertNotEquals(TOKEN, res);
+        assertNotEquals(TOKEN, result);
     }
     @Test
     public void findByUsernameTest() {
@@ -47,17 +47,17 @@ public class UserServiceTest {
         // Given
         when(userRepository.findByUsername(any())).thenReturn(Optional.of(new User(testUsername,"password",TOKEN)));
         // When
-        String res = userService.findByUsername(testUsername);
+        String result = userService.findByUsername(testUsername);
         // then
-        assertEquals(TOKEN, res);
+        assertEquals(TOKEN, result);
     }
     @Test
     public void findByUsernameNotFoundTest() {
         String testUsername = "testUsername";
         // When
-        String res = userService.findByUsername(testUsername);
+        String result = userService.findByUsername(testUsername);
         // then
-        assertEquals("", res);
+        assertEquals("", result);
     }
     @Test
     public void findByTokenTest() {
@@ -65,33 +65,33 @@ public class UserServiceTest {
         // Given
         when(userRepository.findByToken(any())).thenReturn(Optional.of(new User(testUsername,"password",TOKEN)));
         // When
-        Optional<org.springframework.security.core.userdetails.User> res = userService.findByToken(TOKEN);
+        Optional<org.springframework.security.core.userdetails.User> result = userService.findByToken(TOKEN);
         // then
-        assertEquals(testUsername, res.get().getUsername());
+        assertEquals(testUsername, result.get().getUsername());
     }
     @Test
     public void findByTokenNotFoundTest() {
         // When
-        Optional<org.springframework.security.core.userdetails.User> res = userService.findByToken(TOKEN);
+        Optional<org.springframework.security.core.userdetails.User> result = userService.findByToken(TOKEN);
         // then
-        assertEquals(Optional.empty(), res);
+        assertEquals(Optional.empty(), result);
     }
     @Test
     public void existsByUsernameTest() {
         // Given
         when(userRepository.existsByUsername(any())).thenReturn(true);
         // When
-        boolean res = userService.existsByUsername("username");
+        boolean result = userService.existsByUsername("username");
         // then
-        assertEquals(true, res);
+        assertEquals(true, result);
     }
     @Test
     public void existsByTokenTest() {
         // Given
         when(userRepository.existsByToken(any())).thenReturn(true);
         // When
-        boolean res = userService.existsByToken(TOKEN);
+        boolean result = userService.existsByToken(TOKEN);
         // then
-        assertEquals(true, res);
+        assertEquals(true, result);
     }
 }

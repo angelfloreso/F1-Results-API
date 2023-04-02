@@ -35,33 +35,31 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findAll(any())).thenReturn(DummyResults.RESULTLIST);
         // When
-        List<Results> arrr = resultService.getAllResults(paging);
+        List<Results> arrayResults = resultService.getAllResults(paging);
         // then
-        assertEquals(20, arrr.size());
+        assertEquals(20, arrayResults.size());
     }
     @Test
     public void findByPositionTest() {
-        log.info("checking findByPositionTest");
         int position = 0;
         // Given
         when(resultsRepository.findByPosition(position, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByPosition(position, paging);
+        List<Results> arrayPositions = resultService.findByPosition(position, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(position, arrr.get(0).getPosition());
+        assertEquals(1, arrayPositions.size());
+        assertEquals(position, arrayPositions.get(0).getPosition());
     }
     @Test
     public void findByDateTest() {
-        log.info("checking findByDateTest");
         String date = new Date(1668902400).toString();
         // Given
         when(resultsRepository.findByDate(date, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByDate(date, paging);
+        List<Results> arrayDates = resultService.findByDate(date, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(date.toString(), arrr.get(0).getDate().toString());
+        assertEquals(1, arrayDates.size());
+        assertEquals(date.toString(), arrayDates.get(0).getDate().toString());
     }
     @Test
     public void findByRaceTest() {
@@ -69,10 +67,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByRace(race, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByRace(race, paging);
+        List<Results> arrayRaces = resultService.findByRace(race, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(race.toString(), arrr.get(0).getRace());
+        assertEquals(1, arrayRaces.size());
+        assertEquals(race.toString(), arrayRaces.get(0).getRace());
     }
     @Test
     public void findByCircuitTest() {
@@ -80,10 +78,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByCircuit(circuit, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByCircuit(circuit, paging);
+        List<Results> arrayCircuits = resultService.findByCircuit(circuit, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(circuit, arrr.get(0).getCircuit());
+        assertEquals(1, arrayCircuits.size());
+        assertEquals(circuit, arrayCircuits.get(0).getCircuit());
     }
     @Test
     public void findByCountryTest() {
@@ -91,10 +89,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByCountry(country, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByCountry(country, paging);
+        List<Results> arrayCountrys = resultService.findByCountry(country, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(country, arrr.get(0).getCountry());
+        assertEquals(1, arrayCountrys.size());
+        assertEquals(country, arrayCountrys.get(0).getCountry());
     }
     @Test
     public void findByConstructorTest() {
@@ -102,10 +100,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByConstructor(constructor, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByConstructor(constructor, paging);
+        List<Results> arrayConstructors = resultService.findByConstructor(constructor, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(constructor, arrr.get(0).getConstructor());
+        assertEquals(1, arrayConstructors.size());
+        assertEquals(constructor, arrayConstructors.get(0).getConstructor());
     }
     @Test
     public void findByPointsTest() {
@@ -113,10 +111,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByPoints(points, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByPoints(points, paging);
+        List<Results> arrayPoints = resultService.findByPoints(points, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(points, arrr.get(0).getPoints());
+        assertEquals(1, arrayPoints.size());
+        assertEquals(points, arrayPoints.get(0).getPoints());
     }
     @Test
     public void findByForenameTest() {
@@ -124,10 +122,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findByForename(forename, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findByForename(forename, paging);
+        List<Results> arrayForenames = resultService.findByForename(forename, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(forename, arrr.get(0).getForename());
+        assertEquals(1, arrayForenames.size());
+        assertEquals(forename, arrayForenames.get(0).getForename());
     }
     @Test
     public void findBySurnameTest() {
@@ -135,10 +133,10 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findBySurname(surename, paging)).thenReturn(DummyResults.ONE_RESULTLIST);
         // When
-        List<Results> arrr = resultService.findBySurname(surename, paging);
+        List<Results> arraySurnames = resultService.findBySurname(surename, paging);
         // then
-        assertEquals(1, arrr.size());
-        assertEquals(surename, arrr.get(0).getSurname());
+        assertEquals(1, arraySurnames.size());
+        assertEquals(surename, arraySurnames.get(0).getSurname());
     }
     @Test
     public void findByIdTest() {
@@ -146,8 +144,8 @@ public class ResultsServiceTest {
         // Given
         when(resultsRepository.findById(id)).thenReturn(DummyResults.ONE_RESULTLIST.get(0));
         // When
-        Results res = resultService.getById(id);
+        Results results = resultService.getById(id);
         // then
-        assertEquals(id, res.getId());
+        assertEquals(id, results.getId());
     }
 }

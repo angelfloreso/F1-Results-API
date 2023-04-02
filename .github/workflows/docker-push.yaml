@@ -1,4 +1,4 @@
-name: Integration Tests Service
+name: Docker Build an Push
 
 on: push
 

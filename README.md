@@ -3,21 +3,25 @@
 ![CC0 Public Domain](https://raw.githubusercontent.com/afv9988/F1-Results-API/main/src/main/resources/RB19.jpg)
 ![Coverage](.github/badges/jacoco.svg)
 ![Branch](.github/badges/branches.svg)
-![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/tests-service.yaml/badge.svg)
+![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/docker-push.yaml/badge.svg)
 ![Test](https://github.com/afv9988/F1-Results-API/actions/workflows/tests-embedded.yaml/badge.svg)
 
 This is a simple API Code Example for consume F1 historical results 
-Features
+
+Features:
 - Spring Boot
 - Swagger
 - PostgreSQL
 - Mockito
 - Pagination
-- JWT *
-- JaCoCo *
-- GitHub Actions *
-- Badges updated *
-- Unit test with embedded DB (h2 engine)
+- JWT
+- JaCoCo
+- GitHub Actions
+- GitHub Secrets
+- Badges updated
+- Unit testing with embedded DB (h2 engine)
+- Docker build and push to Docker Hub
+- Docker compose files for API and DB Only
 - Updated until Saudi Arabian Grand Prix *
 
 # Steps to install
@@ -27,7 +31,7 @@ Features
 * Maven
 * Docker
 * (Optional) PostgreSQL Server
-  * This is only necesary only if you want to create your DB from scratch 
+  * This is only necesary only if you want to create your DB from scratch
 
 ## 2.- Clone this repo
 ```
@@ -35,15 +39,25 @@ git clone https://github.com/afv9988/F1-Results-API.git
 mvn clean install
 ```
 
-## 3.- Import DB Script on psql
-* Execute import script or you can use my instance
+## 3.- Execute DB instance 
+* Init docker compose for only db (This can take a long)
 ```
-\i 'PROJECT_PATH/datasets/completed/F1_DB_Backup.sql'
+docker-compose -f docker/run_only_db.yml up
 ```
-
+* Or use my public db on your properties file
+```
+jdbc:postgresql://afdev.ddns.net:5432/f1_db
+username=f1_user
+passw=a912072
+```
 ## 4.- Init Spring Boot
 ```
 .\mvnw.cmd spring-boot:run
+```
+
+# Run all in docker
+```
+docker-compose -f docker/run_API_and_postgres.yml up
 ```
 
 # Demo Swagger
