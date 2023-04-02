@@ -16,9 +16,10 @@ Features:
 - Pagination
 - JWT
 - JaCoCo
+- mvn Profiles
 - GitHub Actions
 - GitHub Secrets
-- Badges updated
+- GitHub Badges
 - Unit testing with embedded DB (h2 engine)
 - Docker build and push to Docker Hub
 - Docker compose files for API and DB Only
