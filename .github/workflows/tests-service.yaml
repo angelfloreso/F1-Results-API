@@ -39,4 +39,4 @@ jobs:
       - name: Docker build
         run: ./mvnw dockerfile:build
       - name: Docker push
-        run: ./mvnw dockerfile:push
+        run: ./mvnw dockerfile:push -DDOCKER_PASW=$DOCKER_PASW
